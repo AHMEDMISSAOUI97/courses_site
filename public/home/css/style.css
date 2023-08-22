@@ -6365,7 +6365,11 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #cbd1cf !important;
+  background-color: #F2F1F8 !important;
+}
+
+.bg-secondary_1 {
+  background-color: #A9A8AD !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -7764,6 +7768,113 @@ button.bg-dark:focus {
 .py-1 {
   padding-bottom: 0.25rem !important;
 }
+.content-container {
+  padding: 20px;
+}
+
+.title-section {
+  margin-bottom: 20px;
+}
+
+.kc_title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.divider_line {
+  margin-bottom: 20px;
+}
+
+.divider_inner {
+  width: 30%;
+  border-width: 3px;
+  display: inline-block;
+  border-bottom: 3px solid #e38219;
+}
+
+.price-section {
+  margin-bottom: 30px;
+}
+
+.batitle {
+  font-size: 20px;
+  margin: 0;
+}
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.content-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+
+
+.price-button {
+  margin-top: 15px;
+}
+
+.kc_button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e38219;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center the containers horizontally */
+}
+
+.container,
+.content-container {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.container {
+  flex-basis: 40%; /* Take 70% of the available space */
+}
+
+.content-container {
+  flex-basis: 7%;
+  border-radius: 10px;
+  margin-right: 40px;
+  margin-left: 40px;
+  border: 1px solid #000;
+}
+
+/* Add media query to control layout on smaller screens */
+@media (max-width: 768px) {
+  .container,
+  .content-container {
+    flex-basis: 100%; /* Allow each container to take full width on smaller screens */
+  }
+}
+
+
+
+.social-section {
+  margin-top: 30px;
+}
+
+.sidebarsocial {
+  font-size: 24px;
+}
+
+.multi-icons-link {
+  margin-right: 10px;
+  color: #000000;
+}
+
+/* Additional styling for social media icons */
 
 .pl-1,
 .px-1 {
@@ -7820,9 +7931,50 @@ button.bg-dark:focus {
 
 .p-4 {
   padding: 1.5rem !important;
+}
+
+.p-8 {
+  padding: 1.5rem !important;
   height: 120px;
 }
 
+
+.divider_line {
+  height: 3px;
+  background-color: #e38219;
+}
+
+.innernav {
+  width: 100%;
+  font-size: 20px;
+  line-height: 60px;
+  background: #f0f0f0;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  z-index: 1;
+}
+.innernav ul li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+.innernav ul li a {
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.innernav ul {
+  padding: 0px;
+  align-items: center;
+  text-align: center;
+  text-align: center;
+}
+.innernav ul li {
+  display: inline-block;
+  padding: 0px 20px;
+}
 .pt-4,
 .py-4 {
   padding-top: 1.5rem !important;

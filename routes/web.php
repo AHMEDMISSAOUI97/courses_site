@@ -4,6 +4,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Auth::routes();
 Route::get('/administrateur',[AdminController::class, 'index'])->middleware('auth')->name('administrateur');
 Route::resource('admin/categories', CategoryController::class)->except(['show'])->middleware('auth');
 Route::resource('admin/courses', CourseController::class)->middleware('auth');
+Route::resource('contact', ContactController::class);
 
 Route::get('/afficher_categorie',[CategoryController::class , 'showCategory'])->name('show_category');
 Route::get('/courses/by-category/{categoryId}', [CourseController::class, 'coursesByCategory'])->name('courses_by_category');

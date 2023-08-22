@@ -69,8 +69,8 @@
                             <div class="team-img position-relative">
                                 <img class="img-fluid" src="{{ asset('storage/' . $course->image) }}" alt="">                       
                             </div>
-                            <div class="bg-secondary p-4">
-                                <a href="{{ route('course.show', $course->id) }}"><h6>{{ $course->name }}</h6></a>
+                            <div class="bg-secondary_1 p-8">
+                                <a href="{{ route('course.show', $course->id) }}"><h6>{!! $course->name !!}</h6></a>
                             </div>
                         </div>
                     </div>

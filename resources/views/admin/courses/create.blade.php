@@ -103,6 +103,14 @@
               <span class="menu-title">Formations</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('contact.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Contacts</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- partial -->
@@ -160,8 +168,9 @@
                     <form method="POST" action="{{ route('courses.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="input_course">
-                            <label for="">Nom du Formation : </label>
-                            <input class="input_color" type="text" name="name" placeholder=" Ecrire le nom du formation">
+                            <label for="name">Nom du Formation : </label>
+                            <input id="name" type="hidden" name="name">
+                            <trix-editor input="name"></trix-editor>                        
                         </div>
                         <div class="input_course">
                             <label for="for_whom">Pour qui ? : </label>
@@ -174,8 +183,9 @@
                             <trix-editor input="program"></trix-editor>                        
                         </div>
                         <div class="input_course">
-                            <label for="">Durée du Formation : </label>
-                            <input class="input_color" type="text" name="duration" placeholder=" Ecrire la durée du formation">
+                            <label for="duration">Durée du Formation : </label>
+                            <input id="duration" type="hidden" name="duration">
+                            <trix-editor input="duration"></trix-editor> 
                         </div>
                         <div class="input_course">
                             <label for="objectif">Objectif du Formation : </label>
@@ -193,8 +203,9 @@
                           <trix-editor input="key_strengths"></trix-editor>  
                         </div>
                         <div class="input_course">
-                          <label for="">Pre requis du Formation : </label>
-                          <input class="input_color" type="text" name="prerequisites" placeholder=" Ecrire les pre requis du formation">
+                          <label for="prerequisites">Pre requis du Formation : </label>
+                          <input id="prerequisites" type="hidden" name="prerequisites">
+                          <trix-editor input="prerequisites"></trix-editor>
                         </div>
                         <div class="input_course">
                           <label for="financement">Financement du Formation : </label>
@@ -220,14 +231,14 @@
                         </div>
                     </form>                  
                 </div>
-                <table class="center">
+                <table class="table table-bordered" style="color: white">
                   <tr>
                     <td style="text-align: center">nom du formation</td>
                     <td style="text-align: center">Action</td>
                   </tr>
                   @foreach ($courses as $course)
                     <tr>
-                      <td style="text-align: center">{{ $course->name }}</td>
+                      <td style="text-align: center">{!! $course->name !!}</td>
                       <td style="text-align: center">
                         <form action="{{ route('courses.destroy', $course->id) }}" method="POST">
                           @csrf

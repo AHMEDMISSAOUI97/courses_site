@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin</title>
     <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('trix/css/trix.css') }}">
     <link rel="stylesheet" href="{{asset('adminn/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminn/assets/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
@@ -38,6 +39,12 @@
           width: 50%;
           margin-top: 30px;
           border: 3px solid green;
+        }
+        .input_course{
+          padding-bottom: 25px
+        }
+        .course_label{
+          color: green
         }
     </style>
   </head>
@@ -93,6 +100,14 @@
                 <i class="mdi mdi-playlist-play"></i>
               </span>
               <span class="menu-title">Formations</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('contact.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Contacts</span>
             </a>
           </li>
         </ul>
@@ -152,44 +167,53 @@
                     <form method="POST" action="{{ route('courses.update',$course->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <div class="input_course">
-                          <label for="">Nom du Formation : </label>
-                          <input class="input_color" type="text" name="name" value=" {{$course->name}} ">
+                      <div class="input_course">
+                        <label class="course_label" for="name">Nom du Formation : </label>
+                        <input id="name" type="hidden" name="name" value=" {{$course->name}} ">
+                        <trix-editor input="name"></trix-editor>
                       </div>
                       <div class="input_course">
-                          <label for="">Pour Qui ? : </label>
-                          <input class="input_color" type="text" name="for_whom" value=" {{$course->for_whom}} ">
+                        <label class="course_label" for="for_whom">Pour qui ? : </label>
+                        <input id="for_whom" type="hidden" name="for_whom" value="{{ old('profor_whomgram', $course->for_whom) }}">
+                        <trix-editor input="for_whom"></trix-editor>                        
                       </div>
                       <div class="input_course">
-                        <label for="">Programme du Formation : </label>
-                        <input class="input_color" type="text" name="program" value=" {{$course->program}} ">
+                        <label class="course_label" for="program">Programme du Formation : </label>
+                        <input id="program" type="hidden" name="program" value=" {{$course->program}} ">
+                        <trix-editor input="program"></trix-editor>                        
                       </div>
                       <div class="input_course">
-                        <label for="">Durée du Formation : </label>
-                        <input class="input_color" type="text" name="duration" value=" {{$course->duration}} ">
+                        <label class="course_label" for="duration">Durée du Formation : </label>
+                        <input id="duration" type="hidden" name="duration" value=" {{$course->duration}} ">
+                        <trix-editor input="duration"></trix-editor>
                       </div>
                       <div class="input_course">
-                        <label for="">Objectif du Formation : </label>
-                        <input class="input_color" type="text" name="objectif" value=" {{$course->objectif}} ">
+                        <label class="course_label" for="objectif">Objectif du Formation : </label>
+                        <input id="objectif" type="hidden" name="objectif" value=" {{$course->objectif}} ">
+                        <trix-editor input="objectif"></trix-editor>
                       </div>
                       <div class="input_course">
-                        <label for="">Certification du Formation : </label>
-                        <input class="input_color" type="text" name="certificate" value=" {{$course->certificate}} ">
+                        <label class="course_label" for="certificate">Certification du Formation : </label>
+                        <input id="certificate" type="hidden" name="certificate" value=" {{$course->certificate}} ">
+                        <trix-editor input="certificate"></trix-editor>   
                       </div>
                       <div class="input_course">
-                        <label for="">Point forts du Formation : </label>
-                        <input class="input_color" type="text" name="key_strengths" value=" {{$course->key_strengths}} ">
+                        <label class="course_label" for="key_strengths">Point forts du Formation : </label>
+                        <input id="key_strengths" type="hidden" name="key_strengths" value=" {{$course->key_strengths}} ">
+                        <trix-editor input="key_strengths"></trix-editor>  
                       </div>
                       <div class="input_course">
-                        <label for="">Pre requis du Formation : </label>
-                        <input class="input_color" type="text" name="prerequisites" value=" {{$course->prerequisites}} ">
+                        <label class="course_label" for="prerequisites">Pre requis du Formation : </label>
+                        <input id="prerequisites" type="hidden" name="prerequisites" value=" {{$course->prerequisites}} ">
+                        <trix-editor input="prerequisites"></trix-editor>
                       </div>
                       <div class="input_course">
-                          <label for="">Financement du Formation : </label>
-                          <input class="input_color" type="text" name="financement" value=" {{$course->financement}}">
+                          <label class="course_label" for="financement">Financement du Formation : </label>
+                          <input id="financement" type="hidden" name="financement" value=" {{$course->financement}}">
+                          <trix-editor input="financement"></trix-editor>  
                       </div>                    
                       <div class="input_course">
-                          <label for="">Catégorie du Formation : </label>                       
+                          <label class="course_label" for="">Catégorie du Formation : </label>                       
                           <select name="category_id" id="">
                               <option value="" selected>Choisir une catégorie</option>
                               @foreach ($categories as $categorie)
@@ -234,5 +258,7 @@
     <!-- Custom js for this page -->
     <script src="{{asset('adminn/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    <script src="{{ asset('trix/js/trix.js') }}"></script>
+    <script src="{{ asset('trix/js/attachments.js') }}"></script>
   </body>
 </html>

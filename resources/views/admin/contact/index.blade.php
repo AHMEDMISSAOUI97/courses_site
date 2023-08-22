@@ -148,50 +148,34 @@
         </nav>
         <!-- partial -->
         <div class="content-wrapper">
-            <div class="content-wrapper">
+            <div class="content-wrapper"  style="padding-top: 30px">
               @if (session()->has('success'))
                   <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
                     {{session()->get('success')}}
                   </div>
-              @endif
-                <div class="div_center">
-                    <h2 class="h2_font">Ajouter une catégorie</h2>
-                    <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <div>
-                            <label for="">Nom du catégorie : </label>
-                        </div>
-                        <div>
-                            <input class="input_color" type="text" name="name" placeholder=" Ecrire le nom du catégorie">
-                        </div>
-                        <br>
-                        <div>
-                            <label for="">Image du catégorie : </label>                       
-                        </div>
-                        <div style="padding-bottom: 15px">
-                          <input type="file" name="image" id="image">
-                        </div>
-                        <div style="padding-bottom: 20px">
-                            <input type="submit" class="btn btn-success" name="submit" value="Ajouter catégorie">
-                        </div>
-                    </form>                  
-                </div>
+              @endif               
                 <table class="table table-bordered" style="color: white">
                   <tr>
-                    <td style="text-align: center">nom du catégorie</td>
+                    <td style="text-align: center">Nom</td>
+                    <td style="text-align: center">Email</td>
+                    <td style="text-align: center">Sujet</td>
+                    <td style="text-align: center">Message</td>
                     <td style="text-align: center">Action</td>
+
                   </tr>
-                  @foreach ($categories as $categorie)
+                  @foreach ($contacts as $contact)
                     <tr>
-                      <td style="text-align: center">{{ $categorie->name }}</td>
+                      <td style="text-align: center">{{ $contact->name }}</td>
+                      <td style="text-align: center">{{ $contact->email }}</td>
+                      <td style="text-align: center">{{ $contact->subject }}</td>
+                      <td style="text-align: center">{{ $contact->message }}</td>
                       <td style="text-align: center">
-                        <form action="{{ route('categories.destroy', $categorie->id) }}" method="POST">
+                        <form action="{{ route('contact.destroy', $contact->id) }}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger">Supprimer</button>
                       </form>                        
-                      <a class="btn btn-success" href="{{ route('categories.edit',$categorie->id) }}">Modifier</a>
                       </td>
                      
                     </tr>

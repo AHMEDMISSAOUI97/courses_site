@@ -19,10 +19,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="/homelib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{asset('home/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="home/css/style.css" rel="stylesheet">
+    <link href="{{asset('home/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -60,31 +60,32 @@
         <div class="container py-5">
             <div class="text-center mb-5">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Contact</h5>
-                <h1>Contact For Any Query</h1>
+                <h1>Contact pour toute question</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="contact-form bg-secondary rounded p-5">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form method="POST" action="{{route('contact.store')}}">
+                            @csrf
                             <div class="control-group">
-                                <input type="text" class="form-control border-0 p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" class="form-control border-0 p-4" name="name" placeholder="Votre Nom" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control border-0 p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" class="form-control border-0 p-4" name="email" placeholder="Votre Email" required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control border-0 p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control border-0 p-4" name="subject" placeholder="Le Sujet" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control border-0 py-3 px-4" rows="5" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control border-0 py-3 px-4" rows="5" name="message" placeholder="Le Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                                <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Envoyer Message</button>
                             </div>
                         </form>
                     </div>
@@ -107,15 +108,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="/homelib/easing/easing.min.js"></script>
+    <script src="{{asset('home/lib/easing/easing.min.js')}}"></script>
     <script src="home/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="home/mail/jqBootstrapValidation.min.js"></script>
-    <script src="home/mail/contact.js"></script>
+    <script src="{{asset('home/mail/jqBootstrapValidation.min.js')}}"></script>
+    <script src="{{asset('home/mail/contact.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="home/js/main.js"></script>
+    <script src="{{asset('home/js/main.js')}}"></script>
 </body>
 
 </html>

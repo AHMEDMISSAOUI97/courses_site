@@ -27,7 +27,7 @@
                     <div class="navbar-nav py-0">
                         <a href="{{route('home')}}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Accueil</a>
                         <a href="{{route('aboutus')}}" class="nav-item nav-link {{ request()->is('aboutUs') ? 'active' : '' }}">A propos de nous</a>
-                        <a href="{{route('contact')}}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
+                        <a href="{{route('contact.create')}}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
                     </div>
                     <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="">Esapce étudiant</a>
                 </div>

@@ -76,6 +76,14 @@
               <span class="menu-title">Formations</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('contact.index') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Contacts</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- partial -->
