@@ -19,6 +19,7 @@ class Course extends Model
         'financement',
         'prerequisites',
         'duration',
+        'price',
         'image',
         'category_id',
     ];

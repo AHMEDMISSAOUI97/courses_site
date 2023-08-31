@@ -10,6 +10,7 @@ class ContactController extends Controller
 {
     public function index(){
         $contacts=Contact::all();
+        $course=Course::all();
         return view('admin.contact.index',compact('contacts'));
     }
 
@@ -23,6 +24,7 @@ class ContactController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
+            'phone_number' => 'required',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
         ]);

@@ -66,11 +66,11 @@
                 @foreach ($courses as $course)        
                     <div class="col-md-6 col-lg-3 text-center team mb-4">
                         <div class="team-item rounded overflow-hidden mb-2">
-                            <div class="team-img position-relative">
-                                <img class="img-fluid" src="{{ asset('storage/' . $course->image) }}" alt="">                       
+                            <div class="team-img position-relative">                
+                                <a href="{{ route('course.show', $course->id) }}"><img class="img-fluid" src="{{ asset('storage/' . $course->image) }}" alt=""></a>                       
                             </div>
                             <div class="bg-secondary_1 p-8">
-                                <a href="{{ route('course.show', $course->id) }}"><h6>{!! $course->name !!}</h6></a>
+                                <a style="text-decoration: none" href="{{ route('course.show', $course->id) }}"><h6 style="color: white">{!! $course->name !!}</h6></a>
                             </div>
                         </div>
                     </div>
@@ -93,15 +93,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="home/lib/easing/easing.min.js"></script>
-    <script src="home/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('home/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('home/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Contact Javascript File -->
-    <script src="home/mail/jqBootstrapValidation.min.js"></script>
-    <script src="home/mail/contact.js"></script>
+    <script src="{{asset('home/mail/jqBootstrapValidation.min.js')}}"></script>
+    <script src="{{asset('home/mail/contact.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="home/js/main.js"></script>
+    <script src="{{asset('home/js/main.js')}}"></script>
 </body>
 
 </html>

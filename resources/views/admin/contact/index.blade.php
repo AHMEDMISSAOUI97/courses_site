@@ -159,6 +159,7 @@
                   <tr>
                     <td style="text-align: center">Nom</td>
                     <td style="text-align: center">Email</td>
+                    <td style="text-align: center">Téléphone</td>
                     <td style="text-align: center">Sujet</td>
                     <td style="text-align: center">Message</td>
                     <td style="text-align: center">Action</td>
@@ -168,7 +169,8 @@
                     <tr>
                       <td style="text-align: center">{{ $contact->name }}</td>
                       <td style="text-align: center">{{ $contact->email }}</td>
-                      <td style="text-align: center">{{ $contact->subject }}</td>
+                      <td style="text-align: center">{{ $contact->phone_number }}</td>
+                      <td style="text-align: center">{!! $contact->subject !!}</td>
                       <td style="text-align: center">{{ $contact->message }}</td>
                       <td style="text-align: center">
                         <form action="{{ route('contact.destroy', $contact->id) }}" method="POST">

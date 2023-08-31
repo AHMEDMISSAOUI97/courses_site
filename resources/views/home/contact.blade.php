@@ -28,6 +28,7 @@
 <body>
     @php
     $categories = App\Models\Category::all();
+    $courses=App\Models\Course::all();
     @endphp
     <!-- Topbar Start -->
     @include('home.header')
@@ -58,13 +59,12 @@
     <!-- Contact Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
-            <div class="text-center mb-5">
-                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Contact</h5>
-                <h1>Contact pour toute question</h1>
+            <div class="text-center mb-5">                
+                <h1>Contact</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="contact-form bg-secondary rounded p-5">
+                    <div class="contact-form bg-dark rounded p-5">
                         <div id="success"></div>
                         <form method="POST" action="{{route('contact.store')}}">
                             @csrf
@@ -77,7 +77,17 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control border-0 p-4" name="subject" placeholder="Le Sujet" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="tel" class="form-control border-0 p-4" name="phone_number" placeholder="Votre téléphone" required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <!--input type="text" class="form-control border-0 p-4" name="subject" placeholder="Le Sujet" required="required" data-validation-required-message="Please enter a subject" /-->                        
+                                <select name="subject" class="form-control border-0"  id="subject">
+                                    <option value="" selected>Choisir une Formation</option>
+                                    @foreach ($courses as $course)
+                                        <option value="{{ $course->name }}">{!! $course->name !!}</option>
+                                    @endforeach
+                                </select>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
@@ -109,7 +119,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('home/lib/easing/easing.min.js')}}"></script>
-    <script src="home/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('home/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Contact Javascript File -->
     <script src="{{asset('home/mail/jqBootstrapValidation.min.js')}}"></script>

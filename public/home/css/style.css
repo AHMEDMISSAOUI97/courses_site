@@ -530,6 +530,12 @@ mark,
   height: auto;
 }
 
+.img-rating{
+  width: 210px;
+  height: 50px;
+  padding-left: 115px;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -6369,7 +6375,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary_1 {
-  background-color: #A9A8AD !important;
+  background-color: #090314 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -6429,7 +6435,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #44425A !important;
+  background-color: black !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -6571,7 +6577,36 @@ button.bg-dark:focus {
   clear: both;
   content: "";
 }
+@media (max-width: 991px) {
+  .py-4.px-xl-5 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; /* To prevent wrapping of columns */
+}
 
+.col-lg-3.text-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Allow columns to share available space evenly */
+}
+}
+@media (max-width: 650x) {
+  .py-4.px-xl-5 {
+    justify-content: flex-start;
+    text-align: left;
+    display: block; /* Set to block to stack columns under each other */
+  }
+
+  .col-lg-3.text-right {
+    flex: auto;
+    text-align: left;
+    display: block; /* Set to block to stack columns under each other */
+  }
+
+}
 .d-none {
   display: none !important;
 }
@@ -7649,6 +7684,10 @@ button.bg-dark:focus {
   margin-bottom: 0.5rem !important;
 }
 
+.mb-7{
+  margin-bottom: 0.2rem;
+}
+
 .ml-2,
 .mx-2 {
   margin-left: 0.5rem !important;
@@ -7934,8 +7973,10 @@ button.bg-dark:focus {
 }
 
 .p-8 {
-  padding: 1.5rem !important;
-  height: 120px;
+  padding-top: 1rem !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  padding-bottom: 0.5rem !important;
 }
 
 
